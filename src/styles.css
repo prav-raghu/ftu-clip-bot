@@ -1,0 +1,121 @@
+:root {
+  --bg: rgba(0, 0, 0, 0);
+  --panel: #0f0f0f;
+  --text: #e5e5e5;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+}
+.window {
+  width: 380px;
+  height: 520px;
+  border-radius: 16px;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.titlebar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background: #1a1a1a;
+  font: 500 12px system-ui;
+}
+.titlebar .actions {
+  margin-left: auto;
+}
+.btn {
+  background: transparent;
+  color: #bbb;
+  border: 0;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.content {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  height: calc(100% - 28px);
+}
+.mascot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: #141414;
+  border-right: 1px solid #222;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+}
+.messages {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.msg {
+  padding: 8px 10px;
+  border-radius: 10px;
+  max-width: 92%;
+  line-height: 1.25;
+  font-size: 13px;
+  font-family: system-ui;
+}
+.msg.user {
+  background: #2b2b2b;
+  align-self: flex-end;
+}
+.msg.assistant {
+  background: #202020;
+  border: 1px solid #2a2a2a;
+}
+.inputbar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #222;
+}
+.inputbar input {
+  flex: 1;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  color: #ddd;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font: 13px system-ui;
+}
+.inputbar button {
+  background: #2d6cdf;
+  color: white;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: 600 12px system-ui;
+}
+/* Mascot sprite anim */
+.sprite {
+  width: 80px;
+  height: 120px;
+  background-image: url("/assets/mascot.png");
+  background-repeat: no-repeat;
+  animation: idle 1s steps(4) infinite;
+}
+@keyframes idle {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -320px 0;
+  }
+}
